@@ -49,6 +49,7 @@ class KMeans:
 
         # Iterate, adjusting centroids until converged or until passed max_iter
         iteration = 0
+        prev_centroids = self.centroids #init prev_centroids to avoid error
         while np.not_equal(self.centroids, prev_centroids).any() and iteration < self.max_iter:
             # Sort each datapoint, assigning to nearest centroid
             sorted_points = [[] for _ in range(self.n_clusters)]
